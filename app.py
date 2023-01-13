@@ -23,11 +23,14 @@ data1 = pd.read_csv("Books.csv")
 data2 = pd.read_csv("Users.csv")
 data3 = pd.read_csv("Ratings.csv")
 if st.checkbox('Show Training Dataframe'):
-    if st.checkbox('Show Books Dataset'):
+    genre = st.radio(
+    "Select dataset to be shown",
+    ('Books', 'Users', 'Ratings'))
+    if genre == 'Books':
         data1
-    if st.checkbox('Show Users Dataset'):
+    elif genre == 'Users':
         data2
-    if st.checkbox('Show Ratings Dataset'):
+    elif genre == 'Ratings':
         data3
 
 
@@ -75,4 +78,5 @@ if st.button('Find Similar/Recommended Books'):
     with col5:
         st.text(recommended_book_names[9])
         st.image(recommended_book_posters[9])
-    
+    st.write("Thank you! I hope you liked it. ")
+    st.write("Check out this Repo's [GitHub Link](https://github.com/RohanHBTU/recommender_system)")
