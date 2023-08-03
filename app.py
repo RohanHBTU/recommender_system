@@ -13,9 +13,9 @@ def recommend(book_name):
         l2.append(list(filtered_rating[filtered_rating['Book-Title']==pt.index[i]]['Image-URL-M'].head(1))[0])
     return l1,l2
 
-filtered_rating = pickle.load(open('filtered_rating.pkl','rb'))
-pt = pickle.load(open('pt.pkl','rb'))
-similarity_scores = pickle.load(open('similarity_scores.pkl','rb'))
+filtered_rating = pd.read_pickle(open('filtered_rating.pkl','rb'))
+pt = pd.read_pickle(open('pt.pkl','rb'))
+similarity_scores = pd.read_pickle(open('similarity_scores.pkl','rb'))
 
 
 st.header('Book Recommender System')
